@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <title>Friends List</title>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="">
+      <a class="navbar-brand" href="./userList.html">Friends List</a>
+      <a class="navbar-link text-white ml-2" href="./favorite.html">Favorite</a>
+      <a class="navbar-link text-info ml-4" href="./dislike.html">Dislike</a>
+    </div>
+  </nav>
+
+
+
+  <div class="container">
+
+    <!-- search form -->
+
+    <form class="form-inline mt-4">
+      <input type="text" class="form-control mb-2 mr-sm-2" placeholder="keywords..." id="keywords">
+      <button type="submit" class="btn btn-dark mb-2 ">Submit</button>
+    </form>
+
+    <!-- card -->
+
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 data-panel">
+      <div class="col my-3">
+        <div class="card">
+          <img src="https://randomuser.me/api/portraits/men/88.jpg" class="card-img-top" alt="avatar"
+            data-toggle="modal" data-target="#detailModal" style="cursor:pointer">
+          <div class="card-body">
+            <h6 class="card-title">Name</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- pagination -->
+
+  <ul class="pagination justify-content-center" style="margin:20px 0"></ul>
+
+  <!-- modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="detailModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title ml-2" id="modal-name">Name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row row-wrap justify-content-center">
+            <div class="col-auto my-5" id="modal-avatar" style="width:30%">
+              <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="avatar">
+            </div>
+            <div class="col-auto">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="modal-email">guillaume.vincent@example.com</li>
+                <li class="list-group-item" id="modal-gender">GENDER : male</li>
+                <li class="list-group-item" id="modal-age">AGE : 23</li>
+                <li class="list-group-item" id="modal-region">REGION : CH</li>
+                <li class="list-group-item" id="modal-birth">BIRTH : 1995-05-05</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" id="add-to-favorite">Favorite</button>
+          <button type="button" class="btn btn-outline-danger" id="add-to-favorite">Dislike</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   script -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src='./userList.js'></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
