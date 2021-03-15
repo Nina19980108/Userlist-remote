@@ -65,13 +65,22 @@ function showUserList(data) {
 
   data.forEach((user) => {
     rawHTML += `<div class="col my-3">
-      <div class="card">
-        <img src="${user.avatar}" class="card-img-top" alt="avatar" data-toggle="modal" data-target="#detailModal" data-id="${user.id}" style="cursor:pointer">
-        <div class="card-body">
-          <h6 class="card-title">${user.name}</h6>
+        <div class="card">
+          <div class="card-header">${user.name} ${user.surname}</div>
+          <img src="${user.avatar}" class="card-img-top" alt="avatar"
+            data-toggle="modal" data-target="#detailModal" style="cursor:pointer">
+          <div class="card-body">
+            <a href="#" class="card-text" id="modal-email" style="cursor: pointer">${user.email}</a>
+            <p class="card-text mt-3" id="modal-gender">GENDER : ${user.gender}</p>
+            <p class="card-text" id="modal-age">AGE : ${user.age}</p>
+            <p class="card-text" id="modal-region">REGION : ${user.region}</p>
+            <p class="card-text" id="modal-birth">BIRTH : ${user.birth}</p>
+          </div>
+          <div class="card-footer d-flex flex-row-reverse">
+            <a href="#" class="btn btn-danger" data-id="${user.id}">x</a>
+          </div>
         </div>
-      </div>
-    </div>`;
+      </div>`;
   });
 
   dataPanel.innerHTML = rawHTML;
