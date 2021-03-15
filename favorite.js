@@ -19,6 +19,11 @@ pagination.addEventListener('click', function onClickPagination(event) {
   showUserList(showCardByPage(page))
 })
 
+dataPanel.addEventListener('click', function onClickDataPanel(event) {
+  if (event.target.matches('.btn-remove-user')) {
+    removeFavorite(Number(event.target.dataset.id))
+  }
+})
 
 ///////////// Function //////////////
 
@@ -39,7 +44,7 @@ function showUserList(data) {
             <p class="card-text" id="modal-birth">BIRTH : ${user.birth}</p>
           </div>
           <div class="card-footer d-flex flex-row-reverse">
-            <a href="#" class="btn btn-danger" data-id="${user.id}">x</a>
+            <a href="#" class="btn btn-danger btn-remove-user" data-id="${user.id}">x</a>
           </div>
         </div>
       </div>`;
@@ -66,10 +71,9 @@ function renderPagination(amount) {
   pagination.innerHTML = rawHTML
 }
 
-
-function addToFavorite(id) {
-  const list = JSON.parse(localStorage.getItem('favoriteUser')) || []
-  const user = users.find(user => user.id === id)
-  console.log(id)
-  console.log(users)
+function removeFavorite(id) {
+  const index = users.findIndex(user => user.id === id)
+  users.splice(index, 1)
+  localStorage.setItem('favoriteUsers', JSON.stringify(users))
+  showUserList(showCardByPage(1))
 }
