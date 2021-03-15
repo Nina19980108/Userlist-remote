@@ -41,7 +41,7 @@ dataPanel.addEventListener("click", function showDetalModal(event) {
       birth.innerHTML = `BIRTH : ${data.birthday}`;
       avatar.innerHTML = ` <img src="${data.avatar}" alt="avatar">`;
       modalFooter.innerHTML = `<button type="button" class="btn btn-outline-danger" id="add-to-favorite" data-id="${data.id}">Favorite</button>
-          <button type="button" class="btn btn-outline-danger" id="add-to-favorite" data-id="${data.id}">Dislike</button>
+          <button type="button" class="btn btn-outline-danger" id="add-to-dislike" data-id="${data.id}">Dislike</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>`
     });
   }
@@ -54,8 +54,9 @@ pagination.addEventListener('click', function onClickPagination(event) {
 
 
 modalFooter.addEventListener('click', function onClickFavorite(event) {
-  if (event.target.matches('.btn-secondary')) { return }
-  addToFavorite(Number(event.target.dataset.id))
+  if (event.target.matches('#add-to-favorite')) {
+    addToFavorite(Number(event.target.dataset.id))
+  }
 })
 
 
@@ -97,13 +98,11 @@ function renderPagination(amount) {
   pagination.innerHTML = rawHTML
 }
 
-
 function addToFavorite(id) {
   const list = JSON.parse(localStorage.getItem('favoriteUsers')) || []
   const user = users.find(user => user.id === id)
-
   if (list.some(user => user.id === id)) {
-    return alert('This user is in your Common Contact!')
+    return alert('The user is in your favorite list!')
   }
   list.push(user)
   localStorage.setItem('favoriteUsers', JSON.stringify(list))
