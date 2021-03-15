@@ -30,21 +30,21 @@ dataPanel.addEventListener('click', function onClickDataPanel(event) {
 function showUserList(data) {
   let rawHTML = "";
 
-  data.forEach((user) => {
+  data.forEach((item) => {
     rawHTML += `<div class="col my-3">
         <div class="card">
-          <div class="card-header">${user.name} ${user.surname}</div>
-          <img src="${user.avatar}" class="card-img-top" alt="avatar"
+          <div class="card-header">${item.name} ${item.surname}</div>
+          <img src="${item.avatar}" class="card-img-top" alt="avatar"
             data-toggle="modal" data-target="#detailModal" style="cursor:pointer">
           <div class="card-body">
-            <a href="#" class="card-text" id="modal-email" style="cursor: pointer">${user.email}</a>
-            <p class="card-text mt-3" id="modal-gender">GENDER : ${user.gender}</p>
-            <p class="card-text" id="modal-age">AGE : ${user.age}</p>
-            <p class="card-text" id="modal-region">REGION : ${user.region}</p>
-            <p class="card-text" id="modal-birth">BIRTH : ${user.birth}</p>
+            <a href="#" class="card-text" id="modal-email" style="cursor: pointer">${item.email}</a>
+            <p class="card-text mt-3" id="modal-gender">GENDER : ${item.gender}</p>
+            <p class="card-text" id="modal-age">AGE : ${item.age}</p>
+            <p class="card-text" id="modal-region">REGION : ${item.region}</p>
+            <p class="card-text" id="modal-birth">BIRTH : ${item.birthday}</p>
           </div>
           <div class="card-footer d-flex flex-row-reverse">
-            <a href="#" class="btn btn-danger btn-remove-user" data-id="${user.id}">x</a>
+            <a href="#" class="btn btn-danger btn-remove-user" data-id="${item.id}">x</a>
           </div>
         </div>
       </div>`;
