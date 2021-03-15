@@ -61,10 +61,14 @@ modalFooter.addEventListener('click', function onClickFavorite(event) {
   }
 })
 
-searchForm.addEventListener('submit', function onSearchInputSubmitted(event) {
+searchForm.addEventListener('submit', function onSearchFormSubmitted(event) {
   event.preventDefault()
   const keyword = searchInput.value.trim().toLowerCase()
   const filterUsers = users.filter(user => user.name.toLowerCase().includes(keyword))
+
+  if (!filterUsers.length) {
+    return alert('There is no user with this name.')
+  }
   showUserList(filterUsers)
 })
 
