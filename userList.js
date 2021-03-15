@@ -5,6 +5,8 @@ const USER_PER_PAGE = 12
 const dataPanel = document.querySelector(".data-panel");
 const modalFooter = document.querySelector('.modal-footer')
 const pagination = document.querySelector('.pagination')
+const searchForm = document.querySelector('#search-form')
+const searchInput = document.querySelector('#search-input')
 
 const users = [];
 
@@ -59,7 +61,12 @@ modalFooter.addEventListener('click', function onClickFavorite(event) {
   }
 })
 
-
+searchForm.addEventListener('submit', function onSearchInputSubmitted(event) {
+  event.preventDefault()
+  const keyword = searchInput.value.trim().toLowerCase()
+  const filterUsers = users.filter(user => user.name.toLowerCase().includes(keyword))
+  showUserList(filterUsers)
+})
 
 ///////////// Function //////////////
 
