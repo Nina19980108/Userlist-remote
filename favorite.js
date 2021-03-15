@@ -1,6 +1,6 @@
 const BASE_USL = "https://lighthouse-user-api.herokuapp.com";
 const INDEX_USL = BASE_USL + "/api/v1/users/";
-const USER_PER_PAGE = 12
+const USER_PER_PAGE = 8
 
 const dataPanel = document.querySelector(".data-panel");
 const pagination = document.querySelector('.pagination')
