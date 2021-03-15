@@ -3,7 +3,6 @@ const INDEX_USL = BASE_USL + "/api/v1/users/";
 const USER_PER_PAGE = 12
 
 const dataPanel = document.querySelector(".data-panel");
-const modalFooter = document.querySelector('.modal-footer')
 const pagination = document.querySelector('.pagination')
 
 const users = JSON.parse(localStorage.getItem('favoriteUsers')) || [];
@@ -15,47 +14,10 @@ axios.get(INDEX_USL).then((response) => {
 });
 
 ///////// Event Listener /////////////
-
-dataPanel.addEventListener("click", function showDetalModal(event) {
-  if (event.target.matches("img")) {
-    let id = event.target.dataset.id;
-    console.log();
-
-    axios.get(INDEX_USL + id).then((response) => {
-      const data = response.data;
-      const name = document.querySelector("#modal-name");
-      const email = document.querySelector("#modal-email");
-      const avatar = document.querySelector("#modal-avatar");
-      const gender = document.querySelector("#modal-gender");
-      const age = document.querySelector("#modal-age");
-      const region = document.querySelector("#modal-region");
-      const birth = document.querySelector("#modal-birth");
-
-
-      name.innerHTML = `${data.name} ${data.surname}`;
-      email.innerHTML = `${data.email}`;
-      gender.innerHTML = `GENDER : ${data.gender}`;
-      age.innerHTML = `AGE : ${data.age}`;
-      region.innerHTML = `REGION : ${data.region}`;
-      birth.innerHTML = `BIRTH : ${data.birthday}`;
-      avatar.innerHTML = ` <img src="${data.avatar}" alt="avatar">`;
-      modalFooter.innerHTML = `<button type="button" id="add-to-favorite" class="btn btn-outline-danger" data-id="${data.id}">Add To Favorite</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>`
-    });
-  }
-});
-
 pagination.addEventListener('click', function onClickPagination(event) {
   const page = event.target.dataset.page
   showUserList(showCardByPage(page))
 })
-
-
-modalFooter.addEventListener('click', function onClickFavorite(event) {
-  if (event.target.matches('.btn-secondary')) { return }
-  addToFavorite(event.target.dataset.id)
-})
-
 
 
 ///////////// Function //////////////
