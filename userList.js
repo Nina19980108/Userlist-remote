@@ -9,6 +9,7 @@ const searchForm = document.querySelector('#search-form')
 const searchInput = document.querySelector('#search-input')
 
 const users = [];
+let filterUsers = []
 
 
 axios.get(INDEX_USL).then((response) => {
@@ -64,12 +65,13 @@ modalFooter.addEventListener('click', function onClickFavorite(event) {
 searchForm.addEventListener('submit', function onSearchFormSubmitted(event) {
   event.preventDefault()
   const keyword = searchInput.value.trim().toLowerCase()
-  const filterUsers = users.filter(user => user.name.toLowerCase().includes(keyword))
+  filterUsers = users.filter(user => user.name.toLowerCase().includes(keyword))
 
   if (!filterUsers.length) {
     return alert('There is no user with this name.')
   }
-  showUserList(filterUsers)
+  showUserList(showCardByPage(1))
+  renderPagination(filterUsers.length)
 })
 
 ///////////// Function //////////////
@@ -92,8 +94,9 @@ function showUserList(data) {
 }
 
 function showCardByPage(page) {
+  const data = filterUsers.length ? filterUsers : users
   let startPage = (page - 1) * USER_PER_PAGE
-  return users.slice(startPage, startPage + USER_PER_PAGE)
+  return data.slice(startPage, startPage + USER_PER_PAGE)
 }
 
 
