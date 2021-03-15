@@ -21,17 +21,26 @@
   <!-- card -->
   <div class="container">
 
-    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 data-panel">
+    <div class="row row-cols-3 data-panel">
       <div class="col my-3">
         <div class="card">
+          <div class="card-header">Name</div>
           <img src="https://randomuser.me/api/portraits/men/88.jpg" class="card-img-top" alt="avatar"
             data-toggle="modal" data-target="#detailModal" style="cursor:pointer">
           <div class="card-body">
-            <h6 class="card-title">Name</h6>
+            <a href="#" class="card-text" id="modal-email" style="cursor: pointer">guillaume.vincent@example.com</a>
+            <p class="card-text mt-3" id="modal-gender">GENDER : male</p>
+            <p class="card-text" id="modal-age">AGE : 23</p>
+            <p class="card-text" id="modal-region">REGION : CH</p>
+            <p class="card-text" id="modal-birth">BIRTH : 1995-05-05</p>
+          </div>
+          <div class="card-footer d-flex flex-row-reverse">
+            <a href="#" class="btn btn-danger ">x</a>
           </div>
         </div>
       </div>
     </div>
+
 
   </div>
 
