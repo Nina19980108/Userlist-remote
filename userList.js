@@ -71,7 +71,7 @@ function showUserList(data) {
       <div class="card">
         <img src="${user.avatar}" class="card-img-top" alt="avatar" data-toggle="modal" data-target="#detailModal" data-id="${user.id}" style="cursor:pointer">
         <div class="card-body">
-          <h6 class="card-title">${user.name} ${user.surname}</h6>
+          <h6 class="card-title">${user.name}</h6>
         </div>
       </div>
     </div>`;
