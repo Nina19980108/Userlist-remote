@@ -40,7 +40,8 @@ dataPanel.addEventListener("click", function showDetalModal(event) {
       region.innerHTML = `REGION : ${data.region}`;
       birth.innerHTML = `BIRTH : ${data.birthday}`;
       avatar.innerHTML = ` <img src="${data.avatar}" alt="avatar">`;
-      modalFooter.innerHTML = `<button type="button" id="add-to-favorite" class="btn btn-outline-danger" data-id="${data.id}">Add To Favorite</button>
+      modalFooter.innerHTML = `<button type="button" class="btn btn-outline-danger" id="add-to-favorite" data-id="${data.id}">Favorite</button>
+          <button type="button" class="btn btn-outline-danger" id="add-to-favorite" data-id="${data.id}">Dislike</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>`
     });
   }
